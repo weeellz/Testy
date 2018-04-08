@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 2.8)
+project(yacheck)
+set(CMAKE_C_STANDART 11)
+file(GLOB SOURCES "src/*.c" "src/*.h")
+add_library(yacheck SHARED ${SOURCES})
