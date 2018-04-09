@@ -2,9 +2,11 @@
  * @author Ravil Bikbulatov
  * @date 08.04.18
  */
+#pragma once
 
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 #include "comparators.h"
 
 enum {
@@ -21,13 +23,13 @@ enum {
 #define testy_assert_int(x, op, y) do { \
   int _testy_x = (x); \
   int _testy_y = (y); \
-  testy_check(_testy_x op _testy_y, "Assertion '%s' failed: %s = %jd, %s = %jd", #x" "#op" "#y, #x, _testy_x, #y, _testy_y) \
+  testy_check(_testy_x op _testy_y, "Assertion '%s' failed: %s = %d, %s = %d", #x" "#op" "#y, #x, _testy_x, #y, _testy_y) \
 } while(0)
 
 #define testy_assert_uint(x, op, y) do { \
   uint _testy_x = (x); \
   uint _testy_y = (y); \
-  testy_check(_testy_x op _testy_y, "Assertion '%s' failed: %s = %jd, %s = %jd", #x" "#op" "#y, #x, _testy_x, #y, _testy_y) \
+  testy_check(_testy_x op _testy_y, "Assertion '%s' failed: %s = %ld, %s = %ld", #x" "#op" "#y, #x, _testy_x, #y, _testy_y) \
 } while(0)
 
 #define testy_assert_string(x, op, y) do { \

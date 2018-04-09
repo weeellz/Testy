@@ -3,9 +3,9 @@
  * @date 08.04.18.
  */
 
-#include <testy.h>
+#include <Testy/testy.h>
 #include <stdio.h>
-#include <assert.h>
+#include <Testy/assert.h>
 
 TESTY_CASE(test1) {
   printf("test1\n");
