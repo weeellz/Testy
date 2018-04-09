@@ -5,12 +5,14 @@
 
 #include <testy.h>
 #include <stdio.h>
+#include <assert.h>
 
 TESTY_CASE(test1) {
   printf("test1\n");
 }
 
 TESTY_CASE(test2) {
+  //testy_assert_string_ne("kek", "kek");
   printf("test2\n");
 }
 
