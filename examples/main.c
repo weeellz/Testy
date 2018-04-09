@@ -12,7 +12,7 @@ TESTY_CASE(test1) {
 }
 
 TESTY_CASE(test2) {
-  //testy_assert_string_ne("kek", "kek");
+  testy_assert_double_lt(2.063, 2.045);
   printf("test2\n");
 }
 
