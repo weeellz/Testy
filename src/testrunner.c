@@ -55,12 +55,13 @@ void testy_run(testy_Runner runner) {
     node->test(runner);
     node = node->next;
   }
+  printf("Tests: %d, Passed: %d, Failed: %d", countTests, (countTests-runner->error_count),runner->error_count);
 }
 
 void __registerError(testy_Runner runner){
   runner->error_count++;
 }
 
-void testy_printErrorCount(testy_Runner runner){
-  printf("Tests: %d, Passed: %d, Failed: %d", countTests, (countTests-runner->error_count),runner->error_count);
+int testy_errorCount(testy_Runner runner){
+  return runner->error_count;
 }

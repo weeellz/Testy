@@ -7,25 +7,29 @@
 #include <stdio.h>
 #include <Testy/assert.h>
 
-TESTY_CASE(test1) {
-  printf("test1\n");
-}
+TESTY_INIT
 
-TESTY_CASE(test2) {
+TESTY_CASE(test1)
+  printf("test1\n");
+TEASTY_CLEANUP
+END_CASE
+
+TESTY_CASE(test2)
   testy_assert_double_lt(2.065, 2.064);
   printf("test2\n");
+TEASTY_CLEANUP
 END_CASE
-}
 
-TESTY_CASE(test3) {
+TESTY_CASE(test3)
   testy_assert_int_eq(4, 4);
   printf("test3\n");
+TEASTY_CLEANUP
 END_CASE
-}
 
-TESTY_CASE(test4) {
+TESTY_CASE(test4)
   printf("test4\n");
-}
+TEASTY_CLEANUP
+END_CASE
 
 int main() {
   testy_Runner runner = testy_allocRunner();
@@ -34,6 +38,7 @@ int main() {
   testy_addCase(runner, test3);
   testy_addCase(runner, test4);
   testy_run(runner);
-  testy_printErrorCount(runner);
+  int errors = testy_errorCount(runner);
   testy_destroyRunner(runner);
+  return errors ? EXIT_FAILURE:EXIT_SUCCESS;
 }

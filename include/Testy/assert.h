@@ -8,6 +8,7 @@
 #include <string.h>
 #include <stdio.h>
 #include "comparators.h"
+#include <setjmp.h>
 
 enum {
   testy_SUCCESS = 0,
@@ -17,7 +18,7 @@ enum {
 #define testy_check(expr, format, ...) \
   if(!(expr)) {   \
     printf("Assertion failed on line %d: "format"\n", __LINE__, ## __VA_ARGS__); \
-    goto on_error;  \
+    longjmp(__tc_jmp_lbl, 1);  \
   }
 
 #define testy_assert_int(x, op, y) do { \
