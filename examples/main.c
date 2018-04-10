@@ -12,12 +12,15 @@ TESTY_CASE(test1) {
 }
 
 TESTY_CASE(test2) {
-  testy_assert_double_lt(2.063, 2.045);
+  testy_assert_double_lt(2.065, 2.064);
   printf("test2\n");
+END_CASE
 }
 
 TESTY_CASE(test3) {
+  testy_assert_int_eq(4, 4);
   printf("test3\n");
+END_CASE
 }
 
 TESTY_CASE(test4) {
@@ -31,5 +34,6 @@ int main() {
   testy_addCase(runner, test3);
   testy_addCase(runner, test4);
   testy_run(runner);
-  testy_destoyRunner(runner);
+  testy_printErrorCount(runner);
+  testy_destroyRunner(runner);
 }
