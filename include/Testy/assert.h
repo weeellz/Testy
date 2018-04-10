@@ -17,7 +17,7 @@ enum {
 #define testy_check(expr, format, ...) \
   if(!(expr)) {   \
     printf("Assertion failed on line %d: "format"\n", __LINE__, ## __VA_ARGS__); \
-    exit(testy_ERROR); \
+    goto on_error;  \
   }
 
 #define testy_assert_int(x, op, y) do { \
