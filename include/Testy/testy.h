@@ -19,7 +19,7 @@ extern jmp_buf __tc_jmp_lbl;
      }
 
 
-#define TEASTY_CLEANUP __testy_cleanup: if(error) __registerError(__tcrunner);
+#define TESTY_CLEANUP __testy_cleanup: if(error) __registerError(__tcrunner);
 
 #define END_CASE  }
 

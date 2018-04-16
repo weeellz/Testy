@@ -11,24 +11,24 @@ TESTY_INIT
 
 TESTY_CASE(test1)
   printf("test1\n");
-TEASTY_CLEANUP
+TESTY_CLEANUP
 END_CASE
 
 TESTY_CASE(test2)
   testy_assert_double_lt(2.065, 2.064);
   printf("test2\n");
-TEASTY_CLEANUP
+TESTY_CLEANUP
 END_CASE
 
 TESTY_CASE(test3)
   testy_assert_int_eq(4, 4);
   printf("test3\n");
-TEASTY_CLEANUP
+TESTY_CLEANUP
 END_CASE
 
 TESTY_CASE(test4)
   printf("test4\n");
-TEASTY_CLEANUP
+TESTY_CLEANUP
 END_CASE
 
 int main() {
