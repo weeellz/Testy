@@ -15,7 +15,7 @@ typedef struct {
   double mean;
 } testy_BenchmarkResult;
 
-#define TESTY_BENCHMARK(name, n)                            \
+#define TESTY_BENCHMARK(name, n)                             \
   testy_BenchmarkResult name() {                            \
     int testy_N = n;                                        \
     testy_BenchmarkResult res;                              \
@@ -25,12 +25,12 @@ typedef struct {
     for(int testy_iter = 0; testy_iter < n; ++testy_iter) { \
       double testy_timer = get_time();
 
-#define TESTY_BENCHMARK_END                                             \
+#define TESTY_BENCHMARK_END                                              \
       double testy_endtimer = get_time();                               \
-      double diff = (testy_endtimer - testy_timer);                     \
-      res.mean += diff;                                                 \
-      res.max = res.max > diff ? res.max : diff;                        \
-      res.min = res.min < diff ? res.min : diff;                        \
+      double diff = (testy_endtimer - testy_timer);                      \
+      res.mean += diff;                                                  \
+      res.max = res.max > diff ? res.max : diff;                          \
+      res.min = res.min < diff ? res.min : diff;                          \
     }                                                                   \
     res.mean /= testy_N;                                                \
     return res;                                                         \
