@@ -5,11 +5,11 @@
 #include <Testy/benchmark.h>
 #include <stdio.h>
 #include <unistd.h>
-TESTY_BENCHMARK(bench1, 10)
+TESTY_BENCHMARK(bench1)
   sleep(1);
 TESTY_BENCHMARK_END
 
 int main() {
-  testy_BenchmarkResult res = bench1();
-  printf("%lf %lf %lf", res.max, res.min, res.mean);
+  testy_BenchmarkResult res = bench1(3);
+  printf("max: %lf\nmin: %lf\nmean: %lf\n", res.max, res.min, res.mean);
 }
